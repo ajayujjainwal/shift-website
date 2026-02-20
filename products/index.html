@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="SHIFT by Lumax product portfolio — DMS, SVS, Sidestep, Camera, Motor Controller, Charging, and Gesture Control for Software Defined Vehicles.">
+  <title>Product Portfolio — SHIFT by Lumax</title>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+  <div data-include="../partials/nav.html"></div>
+
+  <!-- ── PAGE HERO ── -->
+  <div class="page-hero">
+    <div class="breadcrumb">
+      <a href="../index.html">Home</a> › Products
+    </div>
+    <h1>Product Portfolio</h1>
+    <p>8 active products across ADAS, connectivity, body electronics, powertrain, charging, and HMI — all engineered for Software Defined Vehicles.</p>
+  </div>
+
+  <!-- ── PRODUCT GRID ── -->
+  <section>
+
+    <div class="filter-bar" id="filterBar">
+      <button class="filter-btn active" data-filter="all">All Products</button>
+      <button class="filter-btn" data-filter="adas">ADAS</button>
+      <button class="filter-btn" data-filter="connectivity">Connectivity</button>
+      <button class="filter-btn" data-filter="body">Body Electronics</button>
+      <button class="filter-btn" data-filter="powertrain">Powertrain</button>
+      <button class="filter-btn" data-filter="charging">Charging</button>
+      <button class="filter-btn" data-filter="hmi">HMI</button>
+    </div>
+
+    <div class="products-grid" id="productGrid">
+
+      <a href="dms.html" class="product-card" data-category="adas">
+        <span class="product-emoji">🖥️</span>
+        <div class="product-tag">Infotainment / ADAS</div>
+        <h3>DMS</h3>
+        <p>Driver Monitoring System for real-time attention and fatigue detection. v2.3 validated at 98.2% eye-tracking accuracy.</p>
+        <div style="margin-top:0.8rem;">
+          <span class="product-status status-active" style="font-size:9px;padding:0.15rem 0.6rem;">● Active</span>
+        </div>
+      </a>
+
+      <a href="svs.html" class="product-card" data-category="connectivity">
+        <span class="product-emoji">📡</span>
+        <div class="product-tag">Connectivity</div>
+        <h3>SVS</h3>
+        <p>Surround View System — 360° camera fusion for enhanced situational awareness and parking assist.</p>
+        <div style="margin-top:0.8rem;">
+          <span class="product-status status-dev" style="font-size:9px;padding:0.15rem 0.6rem;border-radius:20px;background:rgba(176,125,16,0.12);color:#b07d10;">In Development</span>
+        </div>
+      </a>
+
+      <a href="sidestep.html" class="product-card" data-category="body">
+        <span class="product-emoji">🪜</span>
+        <div class="product-tag">Body Electronics</div>
+        <h3>Sidestep</h3>
+        <p>Motorized retractable side-step with intelligent sensor actuation for SUVs and commercial vehicles.</p>
+        <div style="margin-top:0.8rem;">
+          <span class="product-status status-dev" style="font-size:9px;padding:0.15rem 0.6rem;border-radius:20px;background:rgba(176,125,16,0.12);color:#b07d10;">In Development</span>
+        </div>
+      </a>
+
+      <a href="camera.html" class="product-card" data-category="adas">
+        <span class="product-emoji">📷</span>
+        <div class="product-tag">ADAS</div>
+        <h3>Camera Module</h3>
+        <p>High-res, low-latency camera designed for automotive-grade ADAS applications with wide dynamic range.</p>
+        <div style="margin-top:0.8rem;">
+          <span class="product-status status-dev" style="font-size:9px;padding:0.15rem 0.6rem;border-radius:20px;background:rgba(176,125,16,0.12);color:#b07d10;">In Development</span>
+        </div>
+      </a>
+
+      <a href="motor-controller.html" class="product-card" data-category="powertrain">
+        <span class="product-emoji">⚙️</span>
+        <div class="product-tag">Powertrain</div>
+        <h3>Motor Controller</h3>
+        <p>Precision EV motor controller for efficient torque and speed management. Supports BLDC and PMSM architectures.</p>
+        <div style="margin-top:0.8rem;">
+          <span class="product-status status-dev" style="font-size:9px;padding:0.15rem 0.6rem;border-radius:20px;background:rgba(176,125,16,0.12);color:#b07d10;">In Development</span>
+        </div>
+      </a>
+
+      <a href="type-c-charger.html" class="product-card" data-category="charging">
+        <span class="product-emoji">🔌</span>
+        <div class="product-tag">Charging</div>
+        <h3>Type-C Charger</h3>
+        <p>Fast-charge USB-C module optimized for in-vehicle power delivery. Up to 100W, PD 3.0 compliant.</p>
+        <div style="margin-top:0.8rem;">
+          <span class="product-status status-dev" style="font-size:9px;padding:0.15rem 0.6rem;border-radius:20px;background:rgba(176,125,16,0.12);color:#b07d10;">In Development</span>
+        </div>
+      </a>
+
+      <a href="wireless-charger.html" class="product-card" data-category="charging">
+        <span class="product-emoji">📶</span>
+        <div class="product-tag">Charging</div>
+        <h3>Wireless Charger</h3>
+        <p>Qi-compatible wireless charging pad integrated into center consoles. 15W with foreign object detection.</p>
+        <div style="margin-top:0.8rem;">
+          <span class="product-status status-dev" style="font-size:9px;padding:0.15rem 0.6rem;border-radius:20px;background:rgba(176,125,16,0.12);color:#b07d10;">In Development</span>
+        </div>
+      </a>
+
+      <a href="gesture-control.html" class="product-card" data-category="hmi">
+        <span class="product-emoji">👋</span>
+        <div class="product-tag">HMI</div>
+        <h3>Gesture Control</h3>
+        <p>Touchless in-cabin gesture recognition for infotainment and lighting control. Demonstrated at Auto Expo 2026.</p>
+        <div style="margin-top:0.8rem;">
+          <span class="product-status status-active" style="font-size:9px;padding:0.15rem 0.6rem;">● Active Demo</span>
+        </div>
+      </a>
+
+    </div>
+  </section>
+
+  <div data-include="../partials/footer.html"></div>
+  <script src="../js/main.js"></script>
+  <script>
+    // Filter logic
+    document.getElementById('filterBar').addEventListener('click', (e) => {
+      const btn = e.target.closest('.filter-btn');
+      if (!btn) return;
+      document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const filter = btn.dataset.filter;
+      document.querySelectorAll('#productGrid .product-card').forEach(card => {
+        card.style.display = (filter === 'all' || card.dataset.category === filter) ? '' : 'none';
+      });
+    });
+  </script>
+</body>
+</html>
