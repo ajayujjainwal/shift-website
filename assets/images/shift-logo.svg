@@ -7,9 +7,6 @@
     </linearGradient>
   </defs>
 
-  <!-- Dark background -->
-  <rect width="320" height="140" fill="#0e1017" rx="14"/>
-
   <!-- Left loop of infinity symbol (opens at right side toward center) -->
   <path d="M 130,70
            C 122,40 92,20 65,28
