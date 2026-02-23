@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="assets/images/shift-logo.svg" alt="SHIFT by Lumax Logo" width="320"/>
+</p>
+
 # SHIFT by Lumax — Website
 
 A clean, fast, no-framework HTML/CSS/JS website for the SHIFT R&D portal.
