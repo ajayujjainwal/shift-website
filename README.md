@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="assets/images/shift-logo.svg" alt="SHIFT by Lumax Logo" width="320"/>
+  <img src="assets/images/shift-logo.png" alt="SHIFT by Lumax Logo" width="320"/>
 </p>
 
 <h1 align="center">SHIFT by Lumax — Website</h1>
@@ -45,7 +45,7 @@ shift-website/
 │
 └── assets/
     └── images/
-        └── shift-logo.svg       ← SHIFT brand logo (infinity + EKG, red–pink gradient)
+        └── shift-logo.png       ← SHIFT brand logo
 ```
 
 ---
