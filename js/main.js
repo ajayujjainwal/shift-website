@@ -1,27 +1,7 @@
 /**
  * SHIFT by Lumax — main.js
- * Handles: partial loading (nav/footer), active nav highlighting,
- *          mobile menu toggle, scroll animations.
+ * Handles: active nav highlighting, mobile menu toggle, scroll animations.
  */
-
-/* ─────────────────────────────────────────
-   PARTIAL LOADER
-   Usage: <div data-include="partials/nav.html"></div>
-───────────────────────────────────────── */
-async function loadPartials() {
-  const elements = document.querySelectorAll('[data-include]');
-
-  await Promise.all([...elements].map(async (el) => {
-    const file = el.getAttribute('data-include');
-    try {
-      const res = await fetch(file);
-      if (!res.ok) throw new Error(`Failed to load ${file}`);
-      el.outerHTML = await res.text();
-    } catch (err) {
-      console.warn('Partial load error:', err);
-    }
-  }));
-}
 
 /* ─────────────────────────────────────────
    ACTIVE NAV LINK
@@ -33,10 +13,11 @@ function setActiveNav() {
 
   links.forEach(link => {
     const href = link.getAttribute('href');
-    // Exact match, or index.html / root
-    const isHome = (href === 'index.html' || href === '/') &&
+    // Strip any leading ../ for matching purposes
+    const cleanHref = href ? href.replace(/^(\.\.\/)+/, '') : '';
+    const isHome = (cleanHref === 'index.html' || href === '/') &&
                    (path === '/' || path.endsWith('index.html') || path.endsWith('/'));
-    const isMatch = !isHome && href && path.endsWith(href);
+    const isMatch = !isHome && cleanHref && path.endsWith(cleanHref);
 
     if (isHome || isMatch) {
       link.classList.add('active');
@@ -102,10 +83,8 @@ function initSearch() {
   document.addEventListener('keydown', (e) => {
     if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
       e.preventDefault();
-      // TODO: wire up to a real search modal
       const searchEl = document.querySelector('.nav-search');
       if (searchEl) searchEl.focus();
-      console.log('Search triggered — add your search modal here');
     }
   });
 }
@@ -113,10 +92,10 @@ function initSearch() {
 /* ─────────────────────────────────────────
    BOOT
 ───────────────────────────────────────── */
-document.addEventListener('DOMContentLoaded', async () => {
-  await loadPartials();   // Load nav + footer first
-  setActiveNav();         // Then mark active link
+document.addEventListener('DOMContentLoaded', () => {
+  setActiveNav();         // Mark active nav link
   initMobileMenu();       // Wire up mobile toggle
   initScrollAnimations(); // Scroll-triggered fades
   initSearch();           // ⌘K shortcut
 });
+

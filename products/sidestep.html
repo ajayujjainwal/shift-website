@@ -9,7 +9,33 @@
 </head>
 <body>
 
-  <div data-include="../partials/nav.html"></div>
+  <nav>
+  <a href="../index.html" class="nav-logo">
+    <div class="logo-mark">S</div>
+    <div class="logo-text">SHIFT <span>by Lumax</span></div>
+  </a>
+
+  <ul class="nav-links">
+    <li><a href="../index.html">Home</a></li>
+    <li><a href="../insights.html">R&amp;D Insights</a></li>
+    <li><a href="index.html">Products</a></li>
+    <li><a href="../roadmap.html">Roadmap</a></li>
+    <li><a href="../team.html">Team</a></li>
+    <li><a href="../contact.html">Contact</a></li>
+  </ul>
+
+  <div class="nav-search" role="search" aria-label="Search site">
+    🔍 &nbsp; Search SHIFT...
+    &nbsp;<kbd style="color:var(--border);border:1px solid var(--border);border-radius:3px;padding:0.1rem 0.4rem;font-size:10px;font-family:inherit;">⌘K</kbd>
+  </div>
+
+  <!-- Mobile hamburger -->
+  <button class="nav-toggle" aria-label="Toggle menu">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+</nav>
 
   <div class="page-hero">
     <div class="breadcrumb">
@@ -103,7 +129,21 @@
     </div>
   </section>
 
-  <div data-include="../partials/footer.html"></div>
+  <footer>
+  <a href="../index.html" class="nav-logo" style="text-decoration:none;">
+    <div class="logo-mark">S</div>
+    <div class="logo-text">SHIFT <span>by Lumax</span></div>
+  </a>
+
+  <div class="footer-copy">
+    &copy; 2026 Lumax Auto Technologies Limited &middot; All Rights Reserved
+  </div>
+
+  <div class="footer-links">
+    <a href="https://www.lumaxworld.in/" target="_blank" rel="noopener">About Lumax</a>
+    <a href="../contact.html">Contact Us</a>
+  </div>
+</footer>
   <script src="../js/main.js"></script>
 </body>
 </html>
