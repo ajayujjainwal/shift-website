@@ -60,6 +60,16 @@ nav {
   text-decoration: none;
 }
 
+.nav-brand {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 800;
+  font-size: 1.2rem;
+  letter-spacing: 0.12em;
+  color: var(--dark);
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
 .logo-mark {
   width: 32px; height: 32px;
   background: var(--red);
