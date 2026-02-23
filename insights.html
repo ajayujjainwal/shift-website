@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="SHIFT R&D Insights — technical write-ups, prototype learnings, and research notes from the Lumax SHIFT engineering team.">
+  <title>R&D Insights — SHIFT by Lumax</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <div data-include="partials/nav.html"></div>
+
+  <!-- ── PAGE HERO ── -->
+  <div class="page-hero">
+    <div class="breadcrumb">
+      <a href="index.html">Home</a> › R&D Insights
+    </div>
+    <h1>R&amp;D Insights</h1>
+    <p>Technical write-ups, prototype learnings, and research notes from the SHIFT engineering team — published as we build.</p>
+  </div>
+
+  <!-- ── CONTENT ── -->
+  <section>
+    <div class="insights-grid">
+
+      <!-- Articles feed -->
+      <div>
+
+        <div class="filter-bar" id="filterBar">
+          <button class="filter-btn active" data-filter="all">All</button>
+          <button class="filter-btn" data-filter="product">Product</button>
+          <button class="filter-btn" data-filter="rd">R&D</button>
+          <button class="filter-btn" data-filter="event">Events</button>
+          <button class="filter-btn" data-filter="team">Team</button>
+        </div>
+
+        <a href="#" class="article-card" data-category="product">
+          <div class="article-meta">
+            <span class="update-tag tag-product">Product</span>
+            <span class="article-date">Feb 14, 2026</span>
+            <span class="article-author">· Priya R. &amp; Aditya Kumar</span>
+          </div>
+          <div class="article-title">DMS v2.3 Prototype Validated — 98.2% Eye-Tracking Accuracy</div>
+          <div class="article-summary">
+            Lab tests for DMS v2.3 are complete. The improved IR illumination array and updated gaze model deliver 98.2% eye-tracking accuracy across all lighting conditions including direct sunlight at 100 klux and near-dark at 1 lux. Head pose estimation is within ±1.5° for yaw and pitch. The team is now scheduling vehicle integration trials with the test fleet.
+          </div>
+          <div class="article-footer">
+            <span>DMS · ADAS</span>
+            <span>4 min read →</span>
+          </div>
+        </a>
+
+        <a href="#" class="article-card" data-category="rd">
+          <div class="article-meta">
+            <span class="update-tag tag-tech">R&D</span>
+            <span class="article-date">Feb 10, 2026</span>
+            <span class="article-author">· Aditya Kumar</span>
+          </div>
+          <div class="article-title">LiDAR vs Camera Fusion for ADAS Perception — Key Trade-Offs for SDV Use Cases</div>
+          <div class="article-summary">
+            A technical comparison of LiDAR-only, camera-only, and fusion-based perception pipelines for Level 2+ ADAS. We evaluate detection range, object classification accuracy, BOM cost, and robustness in adverse weather. Our finding: for Indian road conditions at L2+ ADAS, a camera-first fusion strategy with radar supplementation offers the best cost-performance trade-off. LiDAR adds marginal benefit below 80 km/h urban scenarios.
+          </div>
+          <div class="article-footer">
+            <span>ADAS · Perception</span>
+            <span>8 min read →</span>
+          </div>
+        </a>
+
+        <a href="#" class="article-card" data-category="event">
+          <div class="article-meta">
+            <span class="update-tag tag-event">Event</span>
+            <span class="article-date">Feb 5, 2026</span>
+            <span class="article-author">· SHIFT Team</span>
+          </div>
+          <div class="article-title">SHIFT at Auto Expo 2026 — What We're Showcasing</div>
+          <div class="article-summary">
+            The SHIFT team will be at Auto Expo 2026, Delhi from February 17–22 at Booth 4C, Hall 12. We're demonstrating three live systems: Gesture Control (touchless infotainment interaction), SVS 360° view (bird's-eye parking assist), and Motor Controller (48V FOC demo on a BLDC dyno). Stop by for a live demo or reach out to schedule a private presentation with the engineering team.
+          </div>
+          <div class="article-footer">
+            <span>Gesture Control · SVS · Motor Controller</span>
+            <span>2 min read →</span>
+          </div>
+        </a>
+
+        <a href="#" class="article-card" data-category="team">
+          <div class="article-meta">
+            <span class="update-tag tag-people">Team</span>
+            <span class="article-date">Jan 28, 2026</span>
+            <span class="article-author">· Amit S.</span>
+          </div>
+          <div class="article-title">Welcome Aditya Kumar — Joining as Lead ADAS Engineer</div>
+          <div class="article-summary">
+            We're excited to welcome Aditya Kumar to the SHIFT team as Lead ADAS Engineer. Aditya brings 8 years of computer vision and autonomous systems experience from the AV space, with a deep background in perception pipelines, sensor fusion, and edge inference optimization. He'll be leading the DMS and Camera Module tracks, and collaborating across the SVS and Gesture Control programs.
+          </div>
+          <div class="article-footer">
+            <span>Team · ADAS</span>
+            <span>2 min read →</span>
+          </div>
+        </a>
+
+        <a href="#" class="article-card" data-category="rd">
+          <div class="article-meta">
+            <span class="update-tag tag-tech">R&D</span>
+            <span class="article-date">Jan 15, 2026</span>
+            <span class="article-author">· Priya R.</span>
+          </div>
+          <div class="article-title">Edge Inference Optimization: Getting DMS Under 150 ms Latency</div>
+          <div class="article-summary">
+            Achieving real-time driver monitoring on a cost-constrained embedded platform required significant model compression. This note documents the path from a 480 ms baseline latency to under 150 ms using INT8 quantization, layer fusion, and hardware-specific NPU tuning. We also discuss the accuracy trade-offs at each compression step and how we recovered accuracy lost in quantization using QAT (Quantization-Aware Training).
+          </div>
+          <div class="article-footer">
+            <span>DMS · Inference · Optimization</span>
+            <span>10 min read →</span>
+          </div>
+        </a>
+
+        <a href="#" class="article-card" data-category="product">
+          <div class="article-meta">
+            <span class="update-tag tag-product">Product</span>
+            <span class="article-date">Jan 5, 2026</span>
+            <span class="article-author">· Rahul M.</span>
+          </div>
+          <div class="article-title">Gesture Control Live Demo — What We Learned from 500 Hours of User Testing</div>
+          <div class="article-summary">
+            Before finalizing the gesture command set for our HMI system, we ran structured user testing sessions over 6 weeks across 3 cities. Key findings: users strongly prefer single-hand gestures; the acceptable false-positive rate is near zero for call-accept/reject actions; and the context-aware activation window (only recognizing gestures in the 25–50 cm zone in front of the center console) dramatically reduced unintended triggers.
+          </div>
+          <div class="article-footer">
+            <span>Gesture Control · HMI · UX</span>
+            <span>6 min read →</span>
+          </div>
+        </a>
+
+        <a href="#" class="article-card" data-category="rd">
+          <div class="article-meta">
+            <span class="update-tag tag-tech">R&D</span>
+            <span class="article-date">Dec 20, 2025</span>
+            <span class="article-author">· SHIFT Engineering</span>
+          </div>
+          <div class="article-title">Building an Automotive-Grade Camera Module: From Sensor Selection to AEC-Q100</div>
+          <div class="article-summary">
+            A deep dive into the Camera Module development process — from selecting the SONY IMX490 class sensor over 5 alternatives, to designing the ISP pipeline, lens selection criteria, and navigating AEC-Q100 Grade 2 qualification. We share our design philosophy for balancing image quality, cost, and automotive reliability requirements.
+          </div>
+          <div class="article-footer">
+            <span>Camera Module · Hardware · AEC-Q100</span>
+            <span>12 min read →</span>
+          </div>
+        </a>
+
+      </div>
+
+      <!-- Sidebar -->
+      <div style="display:flex; flex-direction:column; gap:1rem;">
+        <div class="sidebar-widget">
+          <div class="widget-header">🏷️ &nbsp; Topics</div>
+          <div class="widget-body">
+            <a href="#" class="link-item"><span class="li-icon">🖥️</span> ADAS &amp; Perception</a>
+            <a href="#" class="link-item"><span class="li-icon">⚙️</span> Powertrain &amp; EV</a>
+            <a href="#" class="link-item"><span class="li-icon">👋</span> HMI &amp; UX</a>
+            <a href="#" class="link-item"><span class="li-icon">🔌</span> Charging Systems</a>
+            <a href="#" class="link-item"><span class="li-icon">📡</span> Connectivity</a>
+            <a href="#" class="link-item"><span class="li-icon">🔬</span> Research Notes</a>
+          </div>
+        </div>
+        <div class="sidebar-widget">
+          <div class="widget-header">📅 &nbsp; Upcoming Events</div>
+          <div class="widget-body">
+            <a href="#" class="link-item"><span class="li-icon">🎤</span> Sprint Demo — Feb 28</a>
+            <a href="#" class="link-item"><span class="li-icon">📋</span> Q1 Review — Mar 15</a>
+            <a href="#" class="link-item"><span class="li-icon">🔬</span> Tech Day — Apr 3</a>
+            <a href="#" class="link-item"><span class="li-icon">🚗</span> Vehicle Integration — Apr 10</a>
+          </div>
+        </div>
+        <div class="sidebar-widget">
+          <div class="widget-header">👥 &nbsp; Authors</div>
+          <div class="widget-body">
+            <a href="team.html" class="link-item"><span class="li-icon">👤</span> Priya R. — Tech Lead ADAS</a>
+            <a href="team.html" class="link-item"><span class="li-icon">👤</span> Aditya Kumar — Lead ADAS Eng</a>
+            <a href="team.html" class="link-item"><span class="li-icon">👤</span> Rahul M. — Product Head</a>
+            <a href="team.html" class="link-item"><span class="li-icon">👤</span> Amit S. — Program Manager</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <div data-include="partials/footer.html"></div>
+  <script src="js/main.js"></script>
+  <script>
+    document.getElementById('filterBar').addEventListener('click', (e) => {
+      const btn = e.target.closest('.filter-btn');
+      if (!btn) return;
+      document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const filter = btn.dataset.filter;
+      document.querySelectorAll('.article-card').forEach(card => {
+        card.style.display = (filter === 'all' || card.dataset.category === filter) ? '' : 'none';
+      });
+    });
+  </script>
+</body>
+</html>
