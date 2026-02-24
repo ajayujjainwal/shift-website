@@ -596,7 +596,8 @@ section { padding: 4rem 2.5rem; }
 
 .product-card:hover::after { transform: scaleX(1); }
 
-.product-emoji { font-size: 1.6rem; margin-bottom: 0.9rem; display: block; }
+.product-emoji { width: 40px; height: 40px; margin-bottom: 0.9rem; display: block; }
+.product-heading-icon { width: 36px; height: 36px; vertical-align: middle; margin-right: 0.4rem; position: relative; top: -2px; }
 
 .product-tag {
   font-size: 9px;
