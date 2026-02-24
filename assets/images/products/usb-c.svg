@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
+  <!-- USB-C Multimedia Hub: USB-C connector with hub ports -->
+  <rect x="20" y="6" width="24" height="14" rx="7" stroke="#1a1d26" stroke-width="2.5"/>
+  <rect x="24" y="10" width="16" height="6" rx="3" stroke="#d42e24" stroke-width="1.5"/>
+  <line x1="32" y1="20" x2="32" y2="32" stroke="#1a1d26" stroke-width="2.5"/>
+  <!-- Hub body -->
+  <rect x="12" y="32" width="40" height="16" rx="3" stroke="#1a1d26" stroke-width="2.5"/>
+  <!-- Port indicators -->
+  <circle cx="22" cy="40" r="2.5" fill="#d42e24"/>
+  <circle cx="32" cy="40" r="2.5" fill="#d42e24"/>
+  <circle cx="42" cy="40" r="2.5" fill="#d42e24"/>
+  <!-- Output lines -->
+  <line x1="22" y1="48" x2="22" y2="56" stroke="#1a1d26" stroke-width="2" stroke-linecap="round"/>
+  <line x1="32" y1="48" x2="32" y2="56" stroke="#1a1d26" stroke-width="2" stroke-linecap="round"/>
+  <line x1="42" y1="48" x2="42" y2="56" stroke="#1a1d26" stroke-width="2" stroke-linecap="round"/>
+</svg>

@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
+  <!-- Camera Platform: Camera body with lens -->
+  <path d="M8 20h6l4-6h28l4 6h6v30H8V20z" stroke="#1a1d26" stroke-width="2.5" stroke-linejoin="round"/>
+  <circle cx="32" cy="33" r="10" stroke="#1a1d26" stroke-width="2.5"/>
+  <circle cx="32" cy="33" r="5" stroke="#d42e24" stroke-width="2"/>
+  <circle cx="14" cy="24" r="2" fill="#d42e24"/>
+</svg>
