@@ -1,6 +1,6 @@
 /**
  * SHIFT by Lumax — main.js
- * Premium interactions: nav, mobile menu, scroll animations, stat counters.
+ * Handles: active nav, mobile menu, scroll animations, stat counters, nav scroll.
  */
 
 /* ─────────────────────────────────────────
@@ -55,7 +55,6 @@ function initMobileMenu() {
 
 /* ─────────────────────────────────────────
    SCROLL ANIMATIONS
-   Reveals elements as they enter viewport
 ───────────────────────────────────────── */
 function initScrollAnimations() {
   const observer = new IntersectionObserver((entries) => {
@@ -71,11 +70,11 @@ function initScrollAnimations() {
     observer.observe(el);
   });
 
-  // Auto-add scroll animation to major sections
+  // Auto-reveal major sections on scroll
   document.querySelectorAll('section, .pillars, .stats-strip').forEach(el => {
     if (!el.classList.contains('animate-on-scroll')) {
       el.style.opacity = '0';
-      el.style.transform = 'translateY(20px)';
+      el.style.transform = 'translateY(24px)';
       el.style.transition = 'opacity 0.7s ease-out, transform 0.7s ease-out';
 
       const sectionObserver = new IntersectionObserver((entries) => {
@@ -95,7 +94,6 @@ function initScrollAnimations() {
 
 /* ─────────────────────────────────────────
    ANIMATED STAT COUNTERS
-   Counts up numbers in the stats strip
 ───────────────────────────────────────── */
 function initStatCounters() {
   const stats = document.querySelectorAll('.stat-num');
@@ -115,7 +113,6 @@ function initStatCounters() {
 
 function animateCounter(el) {
   const text = el.textContent;
-  // Extract numeric part
   const match = text.match(/(\d+\.?\d*)/);
   if (!match) return;
 
@@ -129,18 +126,14 @@ function animateCounter(el) {
   function update(now) {
     const elapsed = now - start;
     const progress = Math.min(elapsed / duration, 1);
-    // Ease out cubic
     const eased = 1 - Math.pow(1 - progress, 3);
     const current = eased * target;
-
-    // Rebuild with HTML (preserving <span> tags in suffix/prefix)
     const numStr = isDecimal ? current.toFixed(1) : Math.round(current).toString();
     el.innerHTML = prefix + numStr + suffix;
 
     if (progress < 1) {
       requestAnimationFrame(update);
     } else {
-      // Restore original HTML
       el.innerHTML = prefix + match[1] + suffix;
     }
   }
@@ -163,7 +156,6 @@ function initSearch() {
 
 /* ─────────────────────────────────────────
    NAV SCROLL EFFECT
-   Adds subtle background intensity on scroll
 ───────────────────────────────────────── */
 function initNavScroll() {
   const nav = document.querySelector('nav');
@@ -173,12 +165,10 @@ function initNavScroll() {
   window.addEventListener('scroll', () => {
     if (!ticking) {
       requestAnimationFrame(() => {
-        if (window.scrollY > 20) {
-          nav.style.background = 'rgba(8,9,13,0.92)';
-          nav.style.borderBottomColor = 'rgba(255,255,255,0.09)';
+        if (window.scrollY > 10) {
+          nav.classList.add('scrolled');
         } else {
-          nav.style.background = 'rgba(8,9,13,0.80)';
-          nav.style.borderBottomColor = '';
+          nav.classList.remove('scrolled');
         }
         ticking = false;
       });
