@@ -1,11 +1,10 @@
 /**
  * SHIFT by Lumax — main.js
- * Handles: active nav highlighting, mobile menu toggle, scroll animations.
+ * Handles: active nav, mobile menu, scroll animations, stat counters, nav scroll.
  */
 
 /* ─────────────────────────────────────────
    ACTIVE NAV LINK
-   Marks the current page's nav link as active
 ───────────────────────────────────────── */
 function setActiveNav() {
   const path = window.location.pathname;
@@ -13,7 +12,6 @@ function setActiveNav() {
 
   links.forEach(link => {
     const href = link.getAttribute('href');
-    // Strip any leading ../ for matching purposes
     const cleanHref = href ? href.replace(/^(\.\.\/)+/, '') : '';
     const isHome = (cleanHref === 'index.html' || href === '/') &&
                    (path === '/' || path.endsWith('index.html') || path.endsWith('/'));
@@ -35,7 +33,6 @@ function initMobileMenu() {
 
   toggle.addEventListener('click', () => {
     links.classList.toggle('open');
-    // Animate hamburger → X
     const spans = toggle.querySelectorAll('span');
     toggle.classList.toggle('open');
     if (toggle.classList.contains('open')) {
@@ -49,7 +46,6 @@ function initMobileMenu() {
     }
   });
 
-  // Close menu on outside click
   document.addEventListener('click', (e) => {
     if (!e.target.closest('nav')) {
       links.classList.remove('open');
@@ -59,7 +55,6 @@ function initMobileMenu() {
 
 /* ─────────────────────────────────────────
    SCROLL ANIMATIONS
-   Adds .visible class when elements enter viewport
 ───────────────────────────────────────── */
 function initScrollAnimations() {
   const observer = new IntersectionObserver((entries) => {
@@ -69,15 +64,85 @@ function initScrollAnimations() {
         observer.unobserve(entry.target);
       }
     });
-  }, { threshold: 0.1 });
+  }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
 
   document.querySelectorAll('.animate-on-scroll').forEach(el => {
     observer.observe(el);
   });
+
+  // Auto-reveal major sections on scroll
+  document.querySelectorAll('section, .pillars, .stats-strip').forEach(el => {
+    if (!el.classList.contains('animate-on-scroll')) {
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(24px)';
+      el.style.transition = 'opacity 0.7s ease-out, transform 0.7s ease-out';
+
+      const sectionObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.style.opacity = '1';
+            entry.target.style.transform = 'translateY(0)';
+            sectionObserver.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.05 });
+
+      sectionObserver.observe(el);
+    }
+  });
 }
 
 /* ─────────────────────────────────────────
-   SEARCH (basic keyboard shortcut)
+   ANIMATED STAT COUNTERS
+───────────────────────────────────────── */
+function initStatCounters() {
+  const stats = document.querySelectorAll('.stat-num');
+  if (!stats.length) return;
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        animateCounter(entry.target);
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.5 });
+
+  stats.forEach(stat => observer.observe(stat));
+}
+
+function animateCounter(el) {
+  const text = el.textContent;
+  const match = text.match(/(\d+\.?\d*)/);
+  if (!match) return;
+
+  const target = parseFloat(match[1]);
+  const isDecimal = match[1].includes('.');
+  const prefix = text.substring(0, text.indexOf(match[1]));
+  const suffix = text.substring(text.indexOf(match[1]) + match[1].length);
+  const duration = 1200;
+  const start = performance.now();
+
+  function update(now) {
+    const elapsed = now - start;
+    const progress = Math.min(elapsed / duration, 1);
+    const eased = 1 - Math.pow(1 - progress, 3);
+    const current = eased * target;
+    const numStr = isDecimal ? current.toFixed(1) : Math.round(current).toString();
+    el.innerHTML = prefix + numStr + suffix;
+
+    if (progress < 1) {
+      requestAnimationFrame(update);
+    } else {
+      el.innerHTML = prefix + match[1] + suffix;
+    }
+  }
+
+  requestAnimationFrame(update);
+}
+
+/* ─────────────────────────────────────────
+   SEARCH (keyboard shortcut)
 ───────────────────────────────────────── */
 function initSearch() {
   document.addEventListener('keydown', (e) => {
@@ -90,12 +155,36 @@ function initSearch() {
 }
 
 /* ─────────────────────────────────────────
+   NAV SCROLL EFFECT
+───────────────────────────────────────── */
+function initNavScroll() {
+  const nav = document.querySelector('nav');
+  if (!nav) return;
+
+  let ticking = false;
+  window.addEventListener('scroll', () => {
+    if (!ticking) {
+      requestAnimationFrame(() => {
+        if (window.scrollY > 10) {
+          nav.classList.add('scrolled');
+        } else {
+          nav.classList.remove('scrolled');
+        }
+        ticking = false;
+      });
+      ticking = true;
+    }
+  });
+}
+
+/* ─────────────────────────────────────────
    BOOT
 ───────────────────────────────────────── */
 document.addEventListener('DOMContentLoaded', () => {
-  setActiveNav();         // Mark active nav link
-  initMobileMenu();       // Wire up mobile toggle
-  initScrollAnimations(); // Scroll-triggered fades
-  initSearch();           // ⌘K shortcut
+  setActiveNav();
+  initMobileMenu();
+  initScrollAnimations();
+  initStatCounters();
+  initSearch();
+  initNavScroll();
 });
-

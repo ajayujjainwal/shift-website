@@ -1,0 +1,314 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 250" fill="none">
+  <defs>
+    <linearGradient id="connBg" x1="0" y1="0" x2="400" y2="250" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#f4f5f7"/>
+      <stop offset="100%" stop-color="#e8eaf0"/>
+    </linearGradient>
+    <filter id="connGlow">
+      <feGaussianBlur stdDeviation="2" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <filter id="connNodeGlow">
+      <feGaussianBlur stdDeviation="4"/>
+    </filter>
+    <linearGradient id="dataFlowGrad" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#6d9ee8" stop-opacity="0"/>
+      <stop offset="50%" stop-color="#6d9ee8" stop-opacity="0.8"/>
+      <stop offset="100%" stop-color="#6d9ee8" stop-opacity="0"/>
+    </linearGradient>
+    <clipPath id="connClip">
+      <rect width="400" height="250" rx="6"/>
+    </clipPath>
+  </defs>
+
+  <g clip-path="url(#connClip)">
+    <!-- Background -->
+    <rect width="400" height="250" fill="url(#connBg)"/>
+
+    <!-- PCB substrate pattern -->
+    <g stroke="#dde0e8" stroke-width="0.3" opacity="0.35">
+      <line x1="0" y1="25" x2="400" y2="25"/>
+      <line x1="0" y1="50" x2="400" y2="50"/>
+      <line x1="0" y1="75" x2="400" y2="75"/>
+      <line x1="0" y1="100" x2="400" y2="100"/>
+      <line x1="0" y1="125" x2="400" y2="125"/>
+      <line x1="0" y1="150" x2="400" y2="150"/>
+      <line x1="0" y1="175" x2="400" y2="175"/>
+      <line x1="0" y1="200" x2="400" y2="200"/>
+      <line x1="0" y1="225" x2="400" y2="225"/>
+      <line x1="25" y1="0" x2="25" y2="250"/>
+      <line x1="50" y1="0" x2="50" y2="250"/>
+      <line x1="75" y1="0" x2="75" y2="250"/>
+      <line x1="100" y1="0" x2="100" y2="250"/>
+      <line x1="125" y1="0" x2="125" y2="250"/>
+      <line x1="150" y1="0" x2="150" y2="250"/>
+      <line x1="175" y1="0" x2="175" y2="250"/>
+      <line x1="200" y1="0" x2="200" y2="250"/>
+      <line x1="225" y1="0" x2="225" y2="250"/>
+      <line x1="250" y1="0" x2="250" y2="250"/>
+      <line x1="275" y1="0" x2="275" y2="250"/>
+      <line x1="300" y1="0" x2="300" y2="250"/>
+      <line x1="325" y1="0" x2="325" y2="250"/>
+      <line x1="350" y1="0" x2="350" y2="250"/>
+      <line x1="375" y1="0" x2="375" y2="250"/>
+    </g>
+
+    <!-- Main circuit traces - dark lines -->
+    <g stroke="#1a1d26" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none" opacity="0.6">
+      <!-- Central horizontal bus -->
+      <polyline points="0,125 50,125 62,113 138,113 150,125 250,125 262,113 338,113 350,125 400,125"/>
+
+      <!-- Upper horizontal traces -->
+      <polyline points="0,75 75,75 87,63 175,63 187,75 225,75 237,63 300,63 312,75 400,75"/>
+      <polyline points="50,50 100,50 112,38 200,38 212,50 275,50"/>
+
+      <!-- Lower horizontal traces -->
+      <polyline points="0,175 75,175 87,187 175,187 187,175 225,175 237,187 300,187 312,175 400,175"/>
+      <polyline points="125,212 200,212 212,200 275,200 287,212 350,212"/>
+    </g>
+
+    <!-- Secondary traces -->
+    <g stroke="#1a1d26" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" fill="none" opacity="0.35">
+      <!-- Vertical connections -->
+      <polyline points="100,50 100,75"/>
+      <polyline points="150,75 150,113 150,125"/>
+      <polyline points="200,38 200,63 200,75"/>
+      <polyline points="250,75 250,113 250,125"/>
+      <polyline points="300,63 300,75 300,113"/>
+      <polyline points="75,75 75,125 75,175"/>
+      <polyline points="175,63 175,113"/>
+      <polyline points="175,125 175,175 175,187"/>
+      <polyline points="225,75 225,125 225,175"/>
+      <polyline points="325,75 325,125 325,175"/>
+
+      <!-- Lower vertical connections -->
+      <polyline points="200,175 200,212"/>
+      <polyline points="275,175 275,200 275,212"/>
+      <polyline points="150,125 150,175"/>
+      <polyline points="350,125 350,175 350,212"/>
+
+      <!-- Branch traces -->
+      <polyline points="50,125 50,100 62,88 100,88"/>
+      <polyline points="350,125 350,100 338,88 300,88"/>
+      <polyline points="50,125 50,150 62,162 100,162"/>
+      <polyline points="350,125 350,150 338,162 300,162"/>
+
+      <!-- Stub traces -->
+      <line x1="100" y1="88" x2="100" y2="75"/>
+      <line x1="300" y1="88" x2="300" y2="75"/>
+      <line x1="100" y1="162" x2="100" y2="175"/>
+      <line x1="300" y1="162" x2="300" y2="175"/>
+    </g>
+
+    <!-- Data flow paths (blue) -->
+    <g stroke="#6d9ee8" stroke-width="2" stroke-linecap="round" fill="none" opacity="0.5">
+      <!-- Main data bus highlight -->
+      <polyline points="50,125 62,113 138,113 150,125 250,125 262,113 338,113 350,125" stroke-dasharray="6,4">
+        <animate attributeName="stroke-dashoffset" values="0;-20" dur="2s" repeatCount="indefinite"/>
+      </polyline>
+
+      <!-- Data flow path 1 -->
+      <polyline points="100,50 100,75 150,75 150,113" stroke-dasharray="4,4">
+        <animate attributeName="stroke-dashoffset" values="0;-16" dur="1.8s" repeatCount="indefinite"/>
+      </polyline>
+
+      <!-- Data flow path 2 -->
+      <polyline points="200,38 200,63 225,63 225,75 225,125" stroke-dasharray="4,4">
+        <animate attributeName="stroke-dashoffset" values="0;-16" dur="2.2s" repeatCount="indefinite"/>
+      </polyline>
+
+      <!-- Data flow path 3 -->
+      <polyline points="175,125 175,175 200,175 200,212" stroke-dasharray="4,4">
+        <animate attributeName="stroke-dashoffset" values="0;-16" dur="2s" repeatCount="indefinite"/>
+      </polyline>
+
+      <!-- Data flow path 4 -->
+      <polyline points="300,75 300,113 325,113 325,175" stroke-dasharray="4,4">
+        <animate attributeName="stroke-dashoffset" values="0;-16" dur="1.6s" repeatCount="indefinite"/>
+      </polyline>
+    </g>
+
+    <!-- Data flow particle effects -->
+    <g fill="#6d9ee8" opacity="0.6">
+      <circle r="2">
+        <animateMotion dur="3s" repeatCount="indefinite" path="M50,125 L62,113 L138,113 L150,125 L250,125 L262,113 L338,113 L350,125"/>
+      </circle>
+      <circle r="1.5">
+        <animateMotion dur="3s" repeatCount="indefinite" begin="1s" path="M50,125 L62,113 L138,113 L150,125 L250,125 L262,113 L338,113 L350,125"/>
+      </circle>
+      <circle r="1.5">
+        <animateMotion dur="2s" repeatCount="indefinite" path="M100,50 L100,75 L150,75 L150,113"/>
+      </circle>
+      <circle r="1.5">
+        <animateMotion dur="2.2s" repeatCount="indefinite" path="M175,125 L175,175 L200,175 L200,212"/>
+      </circle>
+    </g>
+
+    <!-- IC component outlines -->
+    <g fill="#f4f5f7" stroke="#1a1d26" stroke-width="1.2" opacity="0.5">
+      <!-- IC chip 1 -->
+      <rect x="85" y="40" width="30" height="20" rx="2"/>
+      <line x1="88" y1="40" x2="88" y2="35" stroke-width="0.8"/>
+      <line x1="95" y1="40" x2="95" y2="35" stroke-width="0.8"/>
+      <line x1="102" y1="40" x2="102" y2="35" stroke-width="0.8"/>
+      <line x1="109" y1="40" x2="109" y2="35" stroke-width="0.8"/>
+
+      <!-- IC chip 2 -->
+      <rect x="260" y="40" width="30" height="20" rx="2"/>
+      <line x1="263" y1="60" x2="263" y2="65" stroke-width="0.8"/>
+      <line x1="270" y1="60" x2="270" y2="65" stroke-width="0.8"/>
+      <line x1="277" y1="60" x2="277" y2="65" stroke-width="0.8"/>
+      <line x1="284" y1="60" x2="284" y2="65" stroke-width="0.8"/>
+
+      <!-- IC chip 3 -->
+      <rect x="125" y="200" width="30" height="20" rx="2"/>
+      <line x1="128" y1="200" x2="128" y2="195" stroke-width="0.8"/>
+      <line x1="135" y1="200" x2="135" y2="195" stroke-width="0.8"/>
+      <line x1="142" y1="200" x2="142" y2="195" stroke-width="0.8"/>
+      <line x1="149" y1="200" x2="149" y2="195" stroke-width="0.8"/>
+
+      <!-- Capacitor symbols -->
+      <rect x="60" y="93" width="8" height="12" rx="1"/>
+      <rect x="332" y="93" width="8" height="12" rx="1"/>
+      <rect x="60" y="155" width="8" height="12" rx="1"/>
+      <rect x="332" y="155" width="8" height="12" rx="1"/>
+
+      <!-- Resistor symbols -->
+      <rect x="158" y="30" width="14" height="6" rx="1"/>
+      <rect x="228" y="30" width="14" height="6" rx="1"/>
+      <rect x="158" y="215" width="14" height="6" rx="1"/>
+      <rect x="310" y="205" width="14" height="6" rx="1"/>
+    </g>
+
+    <!-- Active nodes (red) - major junction points -->
+    <g filter="url(#connGlow)">
+      <!-- Primary active nodes -->
+      <circle cx="150" cy="125" r="6" fill="#f4f5f7" stroke="#1a1d26" stroke-width="1.5"/>
+      <circle cx="150" cy="125" r="3" fill="#d42e24" opacity="0.9">
+        <animate attributeName="opacity" values="0.6;1;0.6" dur="2s" repeatCount="indefinite"/>
+      </circle>
+
+      <circle cx="250" cy="125" r="6" fill="#f4f5f7" stroke="#1a1d26" stroke-width="1.5"/>
+      <circle cx="250" cy="125" r="3" fill="#d42e24" opacity="0.9">
+        <animate attributeName="opacity" values="0.6;1;0.6" dur="2.2s" repeatCount="indefinite"/>
+      </circle>
+
+      <circle cx="200" cy="75" r="5.5" fill="#f4f5f7" stroke="#1a1d26" stroke-width="1.5"/>
+      <circle cx="200" cy="75" r="2.5" fill="#d42e24" opacity="0.85">
+        <animate attributeName="opacity" values="0.5;0.9;0.5" dur="1.8s" repeatCount="indefinite"/>
+      </circle>
+
+      <circle cx="200" cy="175" r="5.5" fill="#f4f5f7" stroke="#1a1d26" stroke-width="1.5"/>
+      <circle cx="200" cy="175" r="2.5" fill="#d42e24" opacity="0.85">
+        <animate attributeName="opacity" values="0.5;0.9;0.5" dur="2.4s" repeatCount="indefinite"/>
+      </circle>
+
+      <!-- Secondary active nodes -->
+      <circle cx="100" cy="75" r="4.5" fill="#f4f5f7" stroke="#1a1d26" stroke-width="1.2"/>
+      <circle cx="100" cy="75" r="2" fill="#d42e24" opacity="0.7">
+        <animate attributeName="opacity" values="0.4;0.8;0.4" dur="2.6s" repeatCount="indefinite"/>
+      </circle>
+
+      <circle cx="300" cy="75" r="4.5" fill="#f4f5f7" stroke="#1a1d26" stroke-width="1.2"/>
+      <circle cx="300" cy="75" r="2" fill="#d42e24" opacity="0.7">
+        <animate attributeName="opacity" values="0.4;0.8;0.4" dur="2s" repeatCount="indefinite"/>
+      </circle>
+
+      <circle cx="100" cy="175" r="4.5" fill="#f4f5f7" stroke="#1a1d26" stroke-width="1.2"/>
+      <circle cx="100" cy="175" r="2" fill="#d42e24" opacity="0.7">
+        <animate attributeName="opacity" values="0.4;0.8;0.4" dur="2.3s" repeatCount="indefinite"/>
+      </circle>
+
+      <circle cx="300" cy="175" r="4.5" fill="#f4f5f7" stroke="#1a1d26" stroke-width="1.2"/>
+      <circle cx="300" cy="175" r="2" fill="#d42e24" opacity="0.7">
+        <animate attributeName="opacity" values="0.4;0.8;0.4" dur="1.7s" repeatCount="indefinite"/>
+      </circle>
+
+      <circle cx="75" cy="125" r="4" fill="#f4f5f7" stroke="#1a1d26" stroke-width="1"/>
+      <circle cx="75" cy="125" r="1.8" fill="#d42e24" opacity="0.6"/>
+
+      <circle cx="325" cy="125" r="4" fill="#f4f5f7" stroke="#1a1d26" stroke-width="1"/>
+      <circle cx="325" cy="125" r="1.8" fill="#d42e24" opacity="0.6"/>
+
+      <circle cx="200" cy="212" r="4" fill="#f4f5f7" stroke="#1a1d26" stroke-width="1"/>
+      <circle cx="200" cy="212" r="1.8" fill="#d42e24" opacity="0.6"/>
+
+      <circle cx="275" cy="212" r="4" fill="#f4f5f7" stroke="#1a1d26" stroke-width="1"/>
+      <circle cx="275" cy="212" r="1.8" fill="#d42e24" opacity="0.6"/>
+
+      <circle cx="200" cy="38" r="4" fill="#f4f5f7" stroke="#1a1d26" stroke-width="1"/>
+      <circle cx="200" cy="38" r="1.8" fill="#d42e24" opacity="0.6"/>
+    </g>
+
+    <!-- Via holes (small) -->
+    <g fill="none" stroke="#1a1d26" stroke-width="0.8" opacity="0.3">
+      <circle cx="175" cy="113" r="2.5"/>
+      <circle cx="175" cy="113" r="1" fill="#1a1d26" opacity="0.3"/>
+      <circle cx="225" cy="113" r="2.5"/>
+      <circle cx="225" cy="113" r="1" fill="#1a1d26" opacity="0.3"/>
+      <circle cx="125" cy="125" r="2.5"/>
+      <circle cx="125" cy="125" r="1" fill="#1a1d26" opacity="0.3"/>
+      <circle cx="275" cy="125" r="2.5"/>
+      <circle cx="275" cy="125" r="1" fill="#1a1d26" opacity="0.3"/>
+      <circle cx="150" cy="75" r="2.5"/>
+      <circle cx="150" cy="75" r="1" fill="#1a1d26" opacity="0.3"/>
+      <circle cx="250" cy="75" r="2.5"/>
+      <circle cx="250" cy="75" r="1" fill="#1a1d26" opacity="0.3"/>
+      <circle cx="150" cy="175" r="2.5"/>
+      <circle cx="150" cy="175" r="1" fill="#1a1d26" opacity="0.3"/>
+      <circle cx="250" cy="175" r="2.5"/>
+      <circle cx="250" cy="175" r="1" fill="#1a1d26" opacity="0.3"/>
+      <circle cx="175" cy="187" r="2.5"/>
+      <circle cx="175" cy="187" r="1" fill="#1a1d26" opacity="0.3"/>
+      <circle cx="225" cy="63" r="2.5"/>
+      <circle cx="225" cy="63" r="1" fill="#1a1d26" opacity="0.3"/>
+    </g>
+
+    <!-- Edge connector pads (left side) -->
+    <g fill="#e8eaf0" stroke="#1a1d26" stroke-width="0.8" opacity="0.4">
+      <rect x="0" y="70" width="8" height="10" rx="1"/>
+      <rect x="0" y="90" width="8" height="10" rx="1"/>
+      <rect x="0" y="110" width="8" height="10" rx="1"/>
+      <rect x="0" y="130" width="8" height="10" rx="1"/>
+      <rect x="0" y="150" width="8" height="10" rx="1"/>
+      <rect x="0" y="170" width="8" height="10" rx="1"/>
+    </g>
+
+    <!-- Edge connector pads (right side) -->
+    <g fill="#e8eaf0" stroke="#1a1d26" stroke-width="0.8" opacity="0.4">
+      <rect x="392" y="70" width="8" height="10" rx="1"/>
+      <rect x="392" y="90" width="8" height="10" rx="1"/>
+      <rect x="392" y="110" width="8" height="10" rx="1"/>
+      <rect x="392" y="130" width="8" height="10" rx="1"/>
+      <rect x="392" y="150" width="8" height="10" rx="1"/>
+      <rect x="392" y="170" width="8" height="10" rx="1"/>
+    </g>
+
+    <!-- Corner marks -->
+    <g stroke="#dde0e8" stroke-width="0.8" opacity="0.4">
+      <polyline points="10,10 10,25" fill="none"/>
+      <polyline points="10,10 25,10" fill="none"/>
+      <polyline points="390,10 390,25" fill="none"/>
+      <polyline points="390,10 375,10" fill="none"/>
+      <polyline points="10,240 10,225" fill="none"/>
+      <polyline points="10,240 25,240" fill="none"/>
+      <polyline points="390,240 390,225" fill="none"/>
+      <polyline points="390,240 375,240" fill="none"/>
+    </g>
+
+    <!-- Mounting holes -->
+    <g fill="none" stroke="#dde0e8" stroke-width="1" opacity="0.4">
+      <circle cx="20" cy="20" r="5"/>
+      <circle cx="20" cy="20" r="2"/>
+      <circle cx="380" cy="20" r="5"/>
+      <circle cx="380" cy="20" r="2"/>
+      <circle cx="20" cy="230" r="5"/>
+      <circle cx="20" cy="230" r="2"/>
+      <circle cx="380" cy="230" r="5"/>
+      <circle cx="380" cy="230" r="2"/>
+    </g>
+  </g>
+</svg>

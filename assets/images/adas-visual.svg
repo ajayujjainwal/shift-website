@@ -1,0 +1,205 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 250" fill="none">
+  <defs>
+    <linearGradient id="adasBg" x1="0" y1="0" x2="400" y2="250" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#f4f5f7"/>
+      <stop offset="100%" stop-color="#e8eaf0"/>
+    </linearGradient>
+    <filter id="adasGlow">
+      <feGaussianBlur stdDeviation="2.5" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <filter id="adasSoftGlow">
+      <feGaussianBlur stdDeviation="6"/>
+    </filter>
+    <clipPath id="adasClip">
+      <rect width="400" height="250" rx="6"/>
+    </clipPath>
+  </defs>
+
+  <g clip-path="url(#adasClip)">
+    <!-- Background -->
+    <rect width="400" height="250" fill="url(#adasBg)"/>
+
+    <!-- Subtle grid -->
+    <g stroke="#dde0e8" stroke-width="0.3" opacity="0.4">
+      <line x1="0" y1="50" x2="400" y2="50"/>
+      <line x1="0" y1="100" x2="400" y2="100"/>
+      <line x1="0" y1="150" x2="400" y2="150"/>
+      <line x1="0" y1="200" x2="400" y2="200"/>
+      <line x1="50" y1="0" x2="50" y2="250"/>
+      <line x1="100" y1="0" x2="100" y2="250"/>
+      <line x1="150" y1="0" x2="150" y2="250"/>
+      <line x1="200" y1="0" x2="200" y2="250"/>
+      <line x1="250" y1="0" x2="250" y2="250"/>
+      <line x1="300" y1="0" x2="300" y2="250"/>
+      <line x1="350" y1="0" x2="350" y2="250"/>
+    </g>
+
+    <!-- Sensor coverage zones (background glow) -->
+    <g filter="url(#adasSoftGlow)" opacity="0.08">
+      <path d="M200,145 L50,30 L350,30 Z" fill="#d42e24"/>
+      <path d="M200,145 L30,80 L30,200 Z" fill="#d42e24"/>
+      <path d="M200,145 L370,80 L370,200 Z" fill="#d42e24"/>
+    </g>
+
+    <!-- Front sensor waves (lidar/radar arcs) -->
+    <g stroke="#d42e24" fill="none" stroke-linecap="round">
+      <!-- Center forward - main sensor cone -->
+      <path d="M170,120 C170,95 185,70 200,55 C215,70 230,95 230,120" stroke-width="1.2" opacity="0.6"/>
+      <path d="M155,120 C155,85 175,50 200,30 C225,50 245,85 245,120" stroke-width="1" opacity="0.45"/>
+      <path d="M140,120 C140,75 165,30 200,5 C235,30 260,75 260,120" stroke-width="0.8" opacity="0.3"/>
+      <path d="M125,120 C125,65 155,15 200,-15 C245,15 275,65 275,120" stroke-width="0.6" opacity="0.18"/>
+
+      <!-- Left side sensor -->
+      <path d="M135,140 C115,135 95,128 80,118" stroke-width="1.2" opacity="0.55"/>
+      <path d="M135,145 C108,138 82,125 60,108" stroke-width="1" opacity="0.4"/>
+      <path d="M135,150 C100,140 68,122 40,98" stroke-width="0.8" opacity="0.28"/>
+      <path d="M135,155 C92,143 55,118 22,88" stroke-width="0.6" opacity="0.16"/>
+
+      <!-- Right side sensor -->
+      <path d="M265,140 C285,135 305,128 320,118" stroke-width="1.2" opacity="0.55"/>
+      <path d="M265,145 C292,138 318,125 340,108" stroke-width="1" opacity="0.4"/>
+      <path d="M265,150 C300,140 332,122 360,98" stroke-width="0.8" opacity="0.28"/>
+      <path d="M265,155 C308,143 345,118 378,88" stroke-width="0.6" opacity="0.16"/>
+
+      <!-- Rear corner sensors -->
+      <path d="M145,175 C125,180 105,188 90,198" stroke-width="0.8" opacity="0.35"/>
+      <path d="M145,180 C118,188 92,200 72,215" stroke-width="0.6" opacity="0.22"/>
+      <path d="M255,175 C275,180 295,188 310,198" stroke-width="0.8" opacity="0.35"/>
+      <path d="M255,180 C282,188 308,200 328,215" stroke-width="0.6" opacity="0.22"/>
+    </g>
+
+    <!-- Sensor detection points (animated) -->
+    <g fill="#d42e24" filter="url(#adasGlow)">
+      <circle cx="200" cy="45" r="2.5" opacity="0.7">
+        <animate attributeName="opacity" values="0.4;0.9;0.4" dur="2s" repeatCount="indefinite"/>
+      </circle>
+      <circle cx="180" cy="60" r="2" opacity="0.5">
+        <animate attributeName="opacity" values="0.3;0.7;0.3" dur="2.4s" repeatCount="indefinite"/>
+      </circle>
+      <circle cx="220" cy="58" r="2" opacity="0.5">
+        <animate attributeName="opacity" values="0.3;0.7;0.3" dur="2.6s" repeatCount="indefinite"/>
+      </circle>
+      <circle cx="85" cy="115" r="2" opacity="0.5">
+        <animate attributeName="opacity" values="0.2;0.6;0.2" dur="2.2s" repeatCount="indefinite"/>
+      </circle>
+      <circle cx="315" cy="115" r="2" opacity="0.5">
+        <animate attributeName="opacity" values="0.2;0.6;0.2" dur="2.3s" repeatCount="indefinite"/>
+      </circle>
+      <circle cx="65" cy="100" r="1.5" opacity="0.4">
+        <animate attributeName="opacity" values="0.2;0.5;0.2" dur="1.8s" repeatCount="indefinite"/>
+      </circle>
+      <circle cx="335" cy="100" r="1.5" opacity="0.4">
+        <animate attributeName="opacity" values="0.2;0.5;0.2" dur="1.9s" repeatCount="indefinite"/>
+      </circle>
+    </g>
+
+    <!-- Car front view -->
+    <g>
+      <!-- Car body -->
+      <path d="M130,175 L130,155 C130,150 133,147 138,145 L165,138 C170,137 175,135 178,130 L190,118 C194,114 198,112 200,112 C202,112 206,114 210,118 L222,130 C225,135 230,137 235,138 L262,145 C267,147 270,150 270,155 L270,175 Z"
+            fill="#e8eaf0" stroke="#1a1d26" stroke-width="2.5" stroke-linejoin="round"/>
+
+      <!-- Windshield -->
+      <path d="M165,138 L178,130 C182,127 188,115 200,115 C212,115 218,127 222,130 L235,138 C225,139 175,139 165,138 Z"
+            fill="#dde0e8" stroke="#1a1d26" stroke-width="1.5"/>
+
+      <!-- Roof -->
+      <path d="M178,130 L185,118 C190,113 195,111 200,111 C205,111 210,113 215,118 L222,130"
+            fill="#e8eaf0" stroke="#1a1d26" stroke-width="2"/>
+
+      <!-- Grille -->
+      <rect x="155" y="155" width="90" height="16" rx="4" fill="#1a1d26" opacity="0.15" stroke="#1a1d26" stroke-width="1.5"/>
+      <!-- Grille slats -->
+      <g stroke="#1a1d26" stroke-width="0.8" opacity="0.3">
+        <line x1="170" y1="157" x2="170" y2="169"/>
+        <line x1="180" y1="157" x2="180" y2="169"/>
+        <line x1="190" y1="157" x2="190" y2="169"/>
+        <line x1="200" y1="157" x2="200" y2="169"/>
+        <line x1="210" y1="157" x2="210" y2="169"/>
+        <line x1="220" y1="157" x2="220" y2="169"/>
+        <line x1="230" y1="157" x2="230" y2="169"/>
+      </g>
+
+      <!-- Headlights -->
+      <g>
+        <!-- Left headlight -->
+        <path d="M130,150 L130,165 L152,165 L152,148 C145,147 138,148 130,150 Z"
+              fill="#f4f5f7" stroke="#1a1d26" stroke-width="1.5" rx="3"/>
+        <path d="M133,152 L133,162 L149,162 L149,150 C143,149 138,150 133,152 Z"
+              fill="#e8eaf0" stroke="#1a1d26" stroke-width="0.8" opacity="0.6"/>
+        <!-- Headlight inner element -->
+        <circle cx="141" cy="157" r="4" fill="none" stroke="#1a1d26" stroke-width="0.8" opacity="0.4"/>
+        <circle cx="141" cy="157" r="1.5" fill="#d42e24" opacity="0.5"/>
+
+        <!-- Right headlight -->
+        <path d="M270,150 L270,165 L248,165 L248,148 C255,147 262,148 270,150 Z"
+              fill="#f4f5f7" stroke="#1a1d26" stroke-width="1.5" rx="3"/>
+        <path d="M267,152 L267,162 L251,162 L251,150 C257,149 262,150 267,152 Z"
+              fill="#e8eaf0" stroke="#1a1d26" stroke-width="0.8" opacity="0.6"/>
+        <!-- Headlight inner element -->
+        <circle cx="259" cy="157" r="4" fill="none" stroke="#1a1d26" stroke-width="0.8" opacity="0.4"/>
+        <circle cx="259" cy="157" r="1.5" fill="#d42e24" opacity="0.5"/>
+      </g>
+
+      <!-- Hood line -->
+      <line x1="155" y1="145" x2="245" y2="145" stroke="#1a1d26" stroke-width="0.8" opacity="0.25"/>
+
+      <!-- Logo/emblem placeholder -->
+      <circle cx="200" cy="150" r="5" fill="none" stroke="#1a1d26" stroke-width="1" opacity="0.3"/>
+      <circle cx="200" cy="150" r="2" fill="#d42e24" opacity="0.4"/>
+
+      <!-- Lower bumper -->
+      <path d="M138,171 L262,171 L268,180 L132,180 Z"
+            fill="#e8eaf0" stroke="#1a1d26" stroke-width="1.2" opacity="0.8"/>
+
+      <!-- Fog lights -->
+      <ellipse cx="148" cy="175" rx="6" ry="3" fill="none" stroke="#1a1d26" stroke-width="0.8" opacity="0.4"/>
+      <ellipse cx="252" cy="175" rx="6" ry="3" fill="none" stroke="#1a1d26" stroke-width="0.8" opacity="0.4"/>
+
+      <!-- Sensor module on roof -->
+      <rect x="192" y="107" width="16" height="6" rx="3" fill="#1a1d26" opacity="0.2" stroke="#1a1d26" stroke-width="1"/>
+      <circle cx="200" cy="110" r="2" fill="#d42e24" opacity="0.6">
+        <animate attributeName="opacity" values="0.3;0.8;0.3" dur="1.5s" repeatCount="indefinite"/>
+      </circle>
+
+      <!-- Side mirrors with sensors -->
+      <path d="M126,142 L118,138 L118,148 L126,145 Z" fill="#e8eaf0" stroke="#1a1d26" stroke-width="1.2"/>
+      <circle cx="118" cy="143" r="1.5" fill="#d42e24" opacity="0.5"/>
+      <path d="M274,142 L282,138 L282,148 L274,145 Z" fill="#e8eaf0" stroke="#1a1d26" stroke-width="1.2"/>
+      <circle cx="282" cy="143" r="1.5" fill="#d42e24" opacity="0.5"/>
+    </g>
+
+    <!-- Road surface -->
+    <line x1="60" y1="195" x2="340" y2="195" stroke="#dde0e8" stroke-width="1.5"/>
+    <g stroke="#dde0e8" stroke-width="1" stroke-dasharray="8,6" opacity="0.5">
+      <line x1="80" y1="205" x2="320" y2="205"/>
+    </g>
+    <!-- Lane markings fading to perspective -->
+    <line x1="100" y1="195" x2="80" y2="230" stroke="#dde0e8" stroke-width="1" opacity="0.4"/>
+    <line x1="300" y1="195" x2="320" y2="230" stroke="#dde0e8" stroke-width="1" opacity="0.4"/>
+
+    <!-- Sensor labels -->
+    <g font-family="system-ui, -apple-system, sans-serif" font-size="8" fill="#1a1d26" opacity="0.35">
+      <text x="190" y="40" text-anchor="middle">LiDAR</text>
+      <text x="65" y="90" text-anchor="middle">Radar</text>
+      <text x="335" y="90" text-anchor="middle">Radar</text>
+      <text x="200" y="100" text-anchor="middle" font-size="7">Camera</text>
+    </g>
+
+    <!-- Corner decoration -->
+    <g stroke="#dde0e8" stroke-width="0.8" opacity="0.4">
+      <polyline points="10,10 10,30" fill="none"/>
+      <polyline points="10,10 30,10" fill="none"/>
+      <polyline points="390,10 390,30" fill="none"/>
+      <polyline points="390,10 370,10" fill="none"/>
+      <polyline points="10,240 10,220" fill="none"/>
+      <polyline points="10,240 30,240" fill="none"/>
+      <polyline points="390,240 390,220" fill="none"/>
+      <polyline points="390,240 370,240" fill="none"/>
+    </g>
+  </g>
+</svg>
