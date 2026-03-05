@@ -223,16 +223,30 @@
   </div>
 </footer>
   <script src="js/main.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
   <script>
+    // ── EmailJS Configuration ──
+    // Replace these with your actual EmailJS credentials:
+    // 1. Sign up at https://www.emailjs.com (free: 200 emails/month)
+    // 2. Create an Email Service (e.g., Gmail, Outlook)
+    // 3. Create an Email Template with variables: {{from_name}}, {{from_email}}, {{organization}}, {{topic}}, {{product}}, {{message}}
+    // 4. Copy your Public Key from Account → API Keys
+    var EMAILJS_PUBLIC_KEY = 'g62m3CZsyGm5qvcRH';
+    var EMAILJS_SERVICE_ID = 'service_rk0d7kp';
+    var EMAILJS_TEMPLATE_ID = 'template_3w3yrb8';
+
+    emailjs.init(EMAILJS_PUBLIC_KEY);
+
     function handleSubmit(e) {
       e.preventDefault();
-      const form = document.getElementById('contactForm');
-      const status = document.getElementById('formStatus');
+      var form = document.getElementById('contactForm');
+      var status = document.getElementById('formStatus');
+      var submitBtn = form.querySelector('button[type="submit"]');
 
       // Basic validation
-      const required = form.querySelectorAll('[required]');
-      let valid = true;
-      required.forEach(field => {
+      var required = form.querySelectorAll('[required]');
+      var valid = true;
+      required.forEach(function(field) {
         if (!field.value.trim()) {
           field.style.borderColor = 'var(--red)';
           valid = false;
@@ -251,14 +265,42 @@
         return;
       }
 
-      // Success state (demo — replace with real form handler)
-      status.style.display = 'block';
-      status.style.background = 'rgba(52,211,153,0.1)';
-      status.style.color = '#34d399';
-      status.style.border = '1px solid rgba(52,211,153,0.2)';
-      status.style.borderRadius = '8px';
-      status.textContent = 'Message sent! The SHIFT team will be in touch within 1–2 business days.';
-      form.reset();
+      // Disable button while sending
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Sending...';
+
+      var templateParams = {
+        from_name: form.firstName.value + ' ' + form.lastName.value,
+        from_email: form.email.value,
+        organization: form.organization.value || 'Not specified',
+        topic: form.topic.options[form.topic.selectedIndex].text,
+        product: form.product.options[form.product.selectedIndex].text,
+        message: form.message.value
+      };
+
+      emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, templateParams)
+        .then(function() {
+          status.style.display = 'block';
+          status.style.background = 'rgba(52,211,153,0.1)';
+          status.style.color = '#34d399';
+          status.style.border = '1px solid rgba(52,211,153,0.2)';
+          status.style.borderRadius = '8px';
+          status.textContent = 'Message sent! The SHIFT team will be in touch within 1\u20132 business days.';
+          form.reset();
+        })
+        .catch(function(error) {
+          status.style.display = 'block';
+          status.style.background = 'rgba(230,57,70,0.1)';
+          status.style.color = '#f06070';
+          status.style.border = '1px solid rgba(230,57,70,0.2)';
+          status.style.borderRadius = '8px';
+          status.textContent = 'Failed to send message. Please try again or email us directly.';
+          console.error('EmailJS error:', error);
+        })
+        .finally(function() {
+          submitBtn.disabled = false;
+          submitBtn.textContent = 'Send Message \u2192';
+        });
     }
   </script>
 </body>
