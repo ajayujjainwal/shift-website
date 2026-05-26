@@ -51,7 +51,7 @@
     {
       keywords: ['svs', '360', '360 view', 'bird eye', 'parking camera'],
       answer:
-        'The <strong>SVS (Surround View System)</strong> gives a 360° bird's-eye view for low-speed manoeuvring. It integrates seamlessly with our DMS and camera modules as part of the full ADAS stack.',
+        "The <strong>SVS (Surround View System)</strong> gives a 360° bird’s-eye view for low-speed manoeuvring. It integrates seamlessly with our DMS and camera modules as part of the full ADAS stack.",
     },
     {
       keywords: ['camera', 'camera platform', 'imaging', 'vision sensor', 'camera module'],
